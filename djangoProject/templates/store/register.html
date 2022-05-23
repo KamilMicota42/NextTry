@@ -1,0 +1,41 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+    <h3 class="title">
+        REGISTER
+    </h3>
+    <div class="container" style="width: 400px">
+        <form>
+            <div class="form-outline mb-2">
+                <input type="email" id="form2Example1" class="form-control" />
+                <label class="form-label" for="form2Example1">Your email</label>
+            </div>
+
+            <div class="form-outline mb-2">
+                <input type="text" id="form2Example1" class="form-control" />
+                <label class="form-label" for="form2Example1">Name</label>
+            </div>
+
+            <div class="form-outline mb-2">
+                <input type="text" id="form2Example1" class="form-control" />
+                <label class="form-label" for="form2Example1">Last name</label>
+            </div>
+
+            <div class="form-outline mb-2">
+                <input type="password" id="form2Example2" class="form-control" />
+                <label class="form-label" for="form2Example2">Password</label>
+            </div>
+
+            <div class="form-outline mb-2">
+                <input type="password" id="form2Example2" class="form-control" />
+                <label class="form-label" for="form2Example2">Repeat your password</label>
+            </div>
+
+            <button type="button" class="btn btn-dark btn-block mb-4">Register</button>
+        </form>
+        <div class="text-center">
+            <p>Already a member? <a href="http://127.0.0.1:8000/login" style="color: inherit; text-decoration: underline">Login</a></p>
+        </div>
+    </div>
+{% endblock content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">

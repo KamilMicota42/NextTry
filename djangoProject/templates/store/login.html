@@ -1,0 +1,31 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+    <h3 class="title">
+        MEMBER LOGIN
+    </h3>
+    <div class="container" style="width: 400px">
+        <form>
+          <!-- Email input -->
+          <div class="form-outline mb-2">
+            <input type="email" id="form2Example1" class="form-control" />
+            <label class="form-label" for="form2Example1">Email address</label>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-2">
+            <input type="password" id="form2Example2" class="form-control" />
+            <label class="form-label" for="form2Example2">Password</label>
+          </div>
+
+          <!-- Submit button -->
+          <button type="button" class="btn btn-dark btn-block mb-4">Sign in</button>
+
+          <!-- Register buttons -->
+          <div class="text-center">
+            <p>Not a member? <a href="http://127.0.0.1:8000/register" style="color: inherit; text-decoration: underline">Register</a></p>
+          </div>
+        </form>
+    </div>
+{% endblock content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
