@@ -4,29 +4,37 @@
     <h3 class="title">
         REGISTER
     </h3>
+    {% if form.errors %}
+        <h5>There was an error with You form...</h5>
+    {% endif %}
+    <form action="{% url 'register_view' %}" method=POST>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-dark btn-block mb-4">Register</button>
+    </form>
     <div class="container" style="width: 400px">
         <form>
-            <div class="form-outline mb-2">
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="form-outline mb-1">
                 <input type="email" id="form2Example1" class="form-control" />
-                <label class="form-label" for="form2Example1">Your email</label>
+                <label class="form-label" for="form2Example1">Username</label>
             </div>
 
-            <div class="form-outline mb-2">
-                <input type="text" id="form2Example1" class="form-control" />
-                <label class="form-label" for="form2Example1">Name</label>
+            <div class="form-outline mb-1">
+                <input type="email" id="form2Example1" class="form-control" />
+                <label class="form-label" for="form2Example1">Email</label>
             </div>
 
-            <div class="form-outline mb-2">
-                <input type="text" id="form2Example1" class="form-control" />
-                <label class="form-label" for="form2Example1">Last name</label>
-            </div>
-
-            <div class="form-outline mb-2">
+            <div class="form-outline mb-1">
                 <input type="password" id="form2Example2" class="form-control" />
                 <label class="form-label" for="form2Example2">Password</label>
             </div>
 
-            <div class="form-outline mb-2">
+            <div class="form-outline mb-1">
                 <input type="password" id="form2Example2" class="form-control" />
                 <label class="form-label" for="form2Example2">Repeat your password</label>
             </div>
