@@ -1,0 +1,35 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+    <h3 class="title">
+        MEMBER LOGIN
+    </h3>
+
+    <div class="container" style="width: 50%">
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+        <form method="POST">{% csrf_token %}
+          <!-- Email input -->
+          <div class="form-outline mb-2">
+            <input type="text" name="username" class="form-control" />
+            <label class="form-label" for="form2Example1">Username</label>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-2">
+            <input type="password" name="password" class="form-control" />
+            <label class="form-label" for="form2Example2">Password</label>
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-dark btn-block mb-4">Login</button>
+
+          <!-- Register buttons -->
+          <div class="text-center">
+            <p>Not a member? <a href="/register" style="color: inherit; text-decoration: underline">Register</a></p>
+          </div>
+        </form>
+    </div>
+{% endblock content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">

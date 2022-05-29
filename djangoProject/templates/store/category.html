@@ -1,0 +1,23 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+    <h3 class="title">
+        CATEGORY {{ cats|upper }}
+    </h3>
+    <div class="row">
+        {% for product in products %}
+        <div class="col-lg-3">
+            <a class="product-title" href="http://127.0.0.1:8000/details/{{ product.id }}">
+                <img class="thumbnail" src="{{ product.imageURL }}" alt="Product">
+            </a>
+            <div class="box-element product">
+               <a class="product-title" href="http://127.0.0.1:8000/details">{{ product.name }}</a>
+                <h6 class="price"><strong>{{ product.price|floatformat:2 }}zł</strong></h6>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">

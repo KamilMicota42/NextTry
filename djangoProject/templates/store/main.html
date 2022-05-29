@@ -11,6 +11,28 @@
 
         <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 
+        <script type="text/javascript">
+            //user interaction
+            var user = '{{ request.user }}'
+            //creating csrf token with js as in django documentation, with changed name
+            function getToken(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getToken('csrftoken');
+        </script>
+
     </head>
     <body>
      <!--NAVBAR-->
@@ -30,31 +52,40 @@
                          <img class="navbar-icon" src="{% static 'images/clothes.png' %}" alt="Clothes">
                      </a>
                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                         <a class="dropdown-item" href="#">Bluzy</a>
-                         <a class="dropdown-item" href="#">Koszulki</a>
-                         <a class="dropdown-item" href="#">Kurtki</a>
-                         <a class="dropdown-item" href="#">Swetry</a>
-                         <a class="dropdown-item" href="#">Spodnie</a>
-                         <a class="dropdown-item" href="#">Koszule</a>
-                         <a class="dropdown-item" href="#">Buty</a>
-                         <a class="dropdown-item" href="#">Inne</a>
+                         <a class="dropdown-item" href="/category/Sweatshirt">Sweatshirt</a>
+                         <a class="dropdown-item" href="/category/T-shirt">T-shirt</a>
+                         <a class="dropdown-item" href="/category/Jacket">Jacket</a>
+                         <a class="dropdown-item" href="/category/Sweater">Sweater</a>
+                         <a class="dropdown-item" href="/category/Pants">Pants</a>
+                         <a class="dropdown-item" href="/category/Shirt">Shirt</a>
+                         <a class="dropdown-item" href="/category/Shoes">Shoes</a>
+                         <a class="dropdown-item" href="/category/Others">Others</a>
                      </div>
                  </li>
                  <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="http://127.0.0.1:8000/checkout" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <a class="nav-link dropdown-toggle" href="/checkout" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                          <img class="navbar-icon" src="{% static 'images/account.png' %}" alt="Account">
                      </a>
+                     {% if not request.user.is_authenticated %}
                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                         <a class="dropdown-item" href="http://127.0.0.1:8000/login">Login</a>
+                         <a class="dropdown-item" href="/login">Login</a>
                      </div>
+                     {% else %}
+                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                         <a class="dropdown-item" href="/favorites">Favorites</a>
+                         <a class="dropdown-item" href="/logout">Logout</a>
+                     </div>
+                     {% endif %}
                  </li>
                  <li class="nav-item">
                      <a class="nav-link" href="http://127.0.0.1:8000/cart">
                          <img class="navbar-icon" src="{% static 'images/cart.png' %}" alt="Cart">
                      </a>
                  </li>
-                 <form class="form-inline my-2 my-lg-0">
-                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                 <form class="form-inline my-2 my-lg-0" action='/search'>
+                     <div class="input-group">
+                         <input name="q" type="text" class="form-control" placeholder="Search" aria-label="Recipient's username" aria-describedby="button-addon2" style="background-color: white; border: none">
+                     </div>
                  </form>
              </ul>
          </div>
@@ -71,5 +102,6 @@
      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-     </body>
+     <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+    </body>
 </html>

@@ -5,80 +5,17 @@
         NEW PRODUCTS
     </h3>
     <div class="row">
+        {% for product in products %}
         <div class="col-lg-3">
-            <a class="product-title" href="http://127.0.0.1:8000/details">
-                <img class="thumbnail" src="{% static 'images/clothes/bluza3.jpg' %}" alt="Product">
+            <a class="product-title" href="http://127.0.0.1:8000/details/{{ product.id }}">
+                <img class="thumbnail" src="{{ product.imageURL }}" alt="Product">
             </a>
             <div class="box-element product">
-                <a class="product-title" href="http://127.0.0.1:8000/details">Product</a>
-                <h6 class="price"><strong>20.99zł</strong></h6>
+               <a class="product-title" href="http://127.0.0.1:8000/details">{{ product.name }}</a>
+                <h6 class="price"><strong>{{ product.price|floatformat:2 }}zł</strong></h6>
             </div>
         </div>
-        <div class="col-lg-3">
-            <a class="product-title" href="http://127.0.0.1:8000/">
-                <img class="thumbnail" src="{% static 'images/clothes/2.jpg' %}" alt="Product">
-            </a>
-            <div class="box-element product">
-                <a class="product-title" href="http://127.0.0.1:8000/">Product</a>
-                <h6 class="price"><strong>20.99zł</strong></h6>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <a class="product-title" href="http://127.0.0.1:8000/">
-                <img class="thumbnail" src="{% static 'images/clothes/3.jpg' %}" alt="Product">
-            </a>
-            <div class="box-element product">
-                <a class="product-title" href="http://127.0.0.1:8000/">Product</a>
-                <h6 class="price"><strong>20.99zł</strong></h6>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <a class="product-title" href="http://127.0.0.1:8000/">
-                <img class="thumbnail" src="{% static 'images/clothes/4.jpg' %}" alt="Product">
-            </a>
-            <div class="box-element product">
-                <a class="product-title" href="http://127.0.0.1:8000/">Product</a>
-                <h6 class="price"><strong>20.99zł</strong></h6>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-3">
-            <a class="product-title" href="http://127.0.0.1:8000/">
-                <img class="thumbnail" src="{% static 'images/clothes/5.jpg' %}" alt="Product">
-            </a>
-            <div class="box-element product">
-                <a class="product-title" href="http://127.0.0.1:8000/">Product</a>
-                <h6 class="price"><strong>20.99zł</strong></h6>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <a class="product-title" href="http://127.0.0.1:8000/">
-                <img class="thumbnail" src="{% static 'images/clothes/6.jpg' %}" alt="Product">
-            </a>
-            <div class="box-element product">
-                <a class="product-title" href="http://127.0.0.1:8000/">Product</a>
-                <h6 class="price"><strong>20.99zł</strong></h6>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <a class="product-title" href="http://127.0.0.1:8000/">
-                <img class="thumbnail" src="{% static 'images/clothes/7.jpg' %}" alt="Product">
-            </a>
-            <div class="box-element product">
-                <a class="product-title" href="http://127.0.0.1:8000/">Product</a>
-                <h6 class="price"><strong>20.99zł</strong></h6>
-            </div>
-        </div>
-        <div class="col-lg-3">
-            <a class="product-title" href="http://127.0.0.1:8000/">
-                <img class="thumbnail" src="{% static 'images/clothes/8.jpg' %}" alt="Product">
-            </a>
-            <div class="box-element product">
-                <a class="product-title" href="http://127.0.0.1:8000/">Product</a>
-                <h6 class="price"><strong>20.99zł</strong></h6>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 {% endblock content %}
 

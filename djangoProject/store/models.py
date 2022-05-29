@@ -42,7 +42,7 @@ class Product(models.Model):
     condition = models.CharField(max_length=12, choices=conditions, default='New')
     genres = (
         ('Sweatshirt', 'Sweatshirt'),
-        ('T-shirts', 'T-shirts'),
+        ('T-shirt', 'T-shirt'),
         ('Jacket', 'Jacket'),
         ('Sweater', 'Sweater'),
         ('Pants', 'Pants'),
@@ -51,10 +51,36 @@ class Product(models.Model):
         ('Other', 'Other'),
     )
     genre = models.CharField(max_length=10, choices=genres, default='Other')
-    # image
+    image = models.ImageField(null=True, blank=True)
+    image1 = models.ImageField(null=True, blank=True)
+    image2 = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.name
+
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ""
+        return url
+
+    @property
+    def image1URL(self):
+        try:
+            url = self.image1.url
+        except:
+            url = ""
+        return url
+
+    @property
+    def image2URL(self):
+        try:
+            url = self.image2.url
+        except:
+            url = ""
+        return url
 
 
 class Order(models.Model):
@@ -64,7 +90,19 @@ class Order(models.Model):
     transaction_id = models.CharField(max_length=200, null=True)
 
     def __str__(self):
-        return self.id
+        return str(self.id)
+
+    @property
+    def get_cart_total(self):
+        orderitems = self.orderitem_set.all()
+        total = sum([item.get_total for item in orderitems])
+        return total
+
+    @property
+    def get_cart_items(self):
+        orderitems = self.orderitem_set.all()
+        total = len(orderitems)
+        return total
 
 
 class OrderItem(models.Model):
@@ -72,6 +110,10 @@ class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.SET_NULL, blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
+    @property
+    def get_total(self):
+        total = self.product.price
+        return total
 
 class ShippingAddress(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, blank=True, null=True)
@@ -84,3 +126,4 @@ class ShippingAddress(models.Model):
 
     def __str__(self):
         return self.address
+

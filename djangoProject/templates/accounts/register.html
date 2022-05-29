@@ -1,0 +1,25 @@
+{% extends 'store/main.html' %}
+{% block content %}
+{% if form.errors %}
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+            There was an error with your form...
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endif %}
+    <h3 class="title">
+        REGISTER
+    </h3>
+    <div class="container" style="width: 50%">
+        <div class="form-outline mb-2 bg-body rounded">
+            <form action="{% url 'register_view' %}" method=POST>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Register" class="btn btn-dark btn-block mb-2">
+            </form>
+        </div>
+        <div class="text-center">
+            <p>Already a member? <a href="/login" style="color: inherit; text-decoration: underline">Login</a></p>
+        </div>
+    </div>
+<br/><br/>
+{% endblock %}

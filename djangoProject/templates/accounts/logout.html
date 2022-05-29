@@ -1,0 +1,16 @@
+{% extends 'store/main.html' %}
+{% load static %}
+
+{% block content %}
+    <h3 class="title">
+        ARE YOU SURE?
+    </h3>
+    <div class="container" style="width: 400px">
+        <form method="POST">{% csrf_token %}
+          <button type="submit" class="btn btn-dark btn-block mt-4">Logout</button>
+        </form>
+        <a type="submit" class="btn btn-dark btn-block mt-3" href="/">No, I want to stay</a>
+    </div>
+{% endblock content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
