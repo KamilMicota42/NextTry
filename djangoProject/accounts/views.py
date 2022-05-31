@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 
-from django.contrib.auth.forms import UserCreationForm
+# from django.contrib.auth.forms import UserCreationForm
 from djangoProject.forms import RegisterUserForm
+from store.models import Customer
 
 
 # Create your views here.
@@ -36,6 +37,14 @@ def register_view(request):
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
             user = authenticate(username=username, password=password)
+
+            name = form.cleaned_data['first_name']
+            email = form.cleaned_data['email']
+            customer = Customer(name=name, email=email)
+
+            customer.user = user
+            customer.save()
+
             login(request, user)
             return redirect('/')
     else:
