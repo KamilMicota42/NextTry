@@ -28,6 +28,7 @@ from store.views import (
     search_view,
     category_view,
     update_item,
+    process_order,
 )
 from accounts.views import (
     login_view,
@@ -54,6 +55,7 @@ urlpatterns = [
     path('register/', register_view, name="register_view"),
 
     path('update_item/', update_item, name="update_item"),
+    path('process_order/', process_order, name="process_order"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

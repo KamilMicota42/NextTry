@@ -2,7 +2,11 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import *
 from django.http import JsonResponse
+from .utils import cartData
 import json
+import datetime
+
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -26,17 +30,27 @@ def cart_view(request):
     return render(request, 'store/cart.html', context)
 
 
+@login_required
 def checkout_view(request):
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-    else:
-        items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0}
+    data = cartData(request)
 
-    context = {'items': items, 'order': order}
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    context = {'items': items, 'order': order, 'cartItems': cartItems}
     return render(request, 'store/checkout.html', context)
+# def checkout_view(request):
+#     if request.user.is_authenticated:
+#         customer = request.user.customer
+#         order, created = Order.objects.get_or_create(customer=customer, complete=False)
+#         items = order.orderitem_set.all()
+#     else:
+#         items = []
+#         order = {'get_cart_total': 0, 'get_cart_items': 0}
+#
+#     context = {'items': items, 'order': order}
+#     return render(request, 'store/checkout.html', context)
 
 
 def details_view(request, pk=None, *args, **kwargs):
@@ -85,6 +99,7 @@ def category_view(request, cats):
 #     return JsonResponse('Item was added', safe=False)
 
 
+@login_required
 def update_item(request):
     data = json.loads(request.body)
     productId = data['productId']
@@ -104,4 +119,35 @@ def update_item(request):
         orderItem.delete()
         return JsonResponse('Item was deleted from cart', safe=False)
 
+    orderItem.save()
+
     return JsonResponse('Item was added to cart', safe=False)
+
+
+@login_required
+@csrf_exempt
+def process_order(request):
+    transaction_id = datetime.datetime.now().timestamp()
+    data = json.loads(request.body)
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        total = float(data['form']['total'])
+        order.transaction_id = transaction_id
+
+        if total == order.get_cart_total:
+            order.complete = True
+        order.save()
+
+        ShippingAddress.objects.create(
+            customer=customer,
+            order=order,
+            address=data['shipping']['address'],
+            city=data['shipping']['city'],
+            state=data['shipping']['state'],
+            zipcode=data['shipping']['zipcode'],
+        )
+    else:
+        print('User is not logged in')
+
+    return JsonResponse('Payment submitted...', safe=False)
