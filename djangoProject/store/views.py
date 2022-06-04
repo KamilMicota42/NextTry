@@ -150,4 +150,12 @@ def process_order(request):
     else:
         print('User is not logged in')
 
+    print('IDS: ')
+    products = Product.objects.all()
+    for product in products:
+        if(product.id in order.get_cart_items_ids):
+            print(product.id)
+
+    print('Len:', order.get_cart_items)
+
     return JsonResponse('Payment submitted...', safe=False)

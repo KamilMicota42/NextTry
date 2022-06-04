@@ -125,6 +125,14 @@ class Order(models.Model):
         total = len(orderitems)
         return total
 
+    @property
+    def get_cart_items_ids(self):
+        orderitems = self.orderitem_set.all()
+        id_list = []
+        for item in orderitems:
+            id_list.append(item.product.id)
+        return id_list
+
 
 class OrderItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
