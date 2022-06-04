@@ -129,33 +129,29 @@ def update_item(request):
 def process_order(request):
     transaction_id = datetime.datetime.now().timestamp()
     data = json.loads(request.body)
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        total = float(data['form']['total'])
-        order.transaction_id = transaction_id
 
-        if total == order.get_cart_total:
-            order.complete = True
-        order.save()
+    customer = request.user.customer
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    total = float(data['form']['total'])
+    order.transaction_id = transaction_id
 
-        ShippingAddress.objects.create(
-            customer=customer,
-            order=order,
-            address=data['shipping']['address'],
-            city=data['shipping']['city'],
-            state=data['shipping']['state'],
-            zipcode=data['shipping']['zipcode'],
-        )
-    else:
-        print('User is not logged in')
+    if total == order.get_cart_total:
+        order.complete = True
+    order.save()
 
-    print('IDS: ')
+    ShippingAddress.objects.create(
+        customer=customer,
+        order=order,
+        address=data['shipping']['address'],
+        city=data['shipping']['city'],
+        state=data['shipping']['state'],
+        zipcode=data['shipping']['zipcode'],
+    )
+
     products = Product.objects.all()
+    lista = order.get_cart_items_ids
     for product in products:
-        if(product.id in order.get_cart_items_ids):
-            print(product.id)
-
-    print('Len:', order.get_cart_items)
+        if (product.id in lista):
+            product.delete()
 
     return JsonResponse('Payment submitted...', safe=False)
