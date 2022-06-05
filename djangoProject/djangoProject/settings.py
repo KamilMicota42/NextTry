@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'store.apps.StoreConfig',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -127,7 +128,6 @@ STATICFILES_DIRS = [
 ]
 
 MEDIA_URL = '/images/clothes/'
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/clothes')
 
 # Default primary key field type

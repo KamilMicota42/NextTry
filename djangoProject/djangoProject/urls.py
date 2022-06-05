@@ -56,6 +56,9 @@ urlpatterns = [
 
     path('update_item/', update_item, name="update_item"),
     path('process_order/', process_order, name="process_order"),
+
+    path('captcha/', include('captcha.urls')),
+
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
