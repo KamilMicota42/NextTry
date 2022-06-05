@@ -15,4 +15,8 @@ services:
     ports:
       - "8000:8000"
     depends_on:
+<<<<<<< HEAD
       - db
+=======
+      - db
+>>>>>>> 9c8328b1e52c206ac46a43aebfc89c9062745086
