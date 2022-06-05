@@ -5,8 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from djangoProject.forms import RegisterUserForm
 from store.models import Customer
 
-
-# Create your views here.
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 def login_view(request):
@@ -44,6 +44,22 @@ def register_view(request):
 
             customer.user = user
             customer.save()
+
+            # auto email sending
+            # template = render_to_string('../templates/accounts/email_template.html')
+            # email = EmailMessage(
+            #     'Welcome to NextTry',
+            #     template,
+            #     settings.EMAIL_HOST_USER,
+            #     [form.cleaned_data['email']],
+            # )
+            # email.fail_silently = False
+            # email.send()
+            subject = 'Welcome to NexTry.'
+            message = 'It  means a world to us '
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = [email, ]
+            send_mail(subject, message, email_from, recipient_list)
 
             login(request, user)
             return redirect('/')
