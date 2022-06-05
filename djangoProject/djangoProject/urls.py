@@ -29,6 +29,7 @@ from store.views import (
     category_view,
     update_item,
     process_order,
+    update_item_favorites,
 )
 from accounts.views import (
     login_view,
@@ -55,6 +56,8 @@ urlpatterns = [
     path('register/', register_view, name="register_view"),
 
     path('update_item/', update_item, name="update_item"),
+    path('update_item_favorites/', update_item_favorites, name="update_item_favorites"),
+
     path('process_order/', process_order, name="process_order"),
 
     path('captcha/', include('captcha.urls')),

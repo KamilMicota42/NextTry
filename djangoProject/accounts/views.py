@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 
-# from django.contrib.auth.forms import UserCreationForm
 from djangoProject.forms import RegisterUserForm
 from store.models import Customer
 
@@ -45,18 +44,8 @@ def register_view(request):
             customer.user = user
             customer.save()
 
-            # auto email sending
-            # template = render_to_string('../templates/accounts/email_template.html')
-            # email = EmailMessage(
-            #     'Welcome to NextTry',
-            #     template,
-            #     settings.EMAIL_HOST_USER,
-            #     [form.cleaned_data['email']],
-            # )
-            # email.fail_silently = False
-            # email.send()
             subject = 'Welcome to NexTry.'
-            message = 'It  means a world to us '
+            message = 'We are so happy to have you with us.'
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [email, ]
             send_mail(subject, message, email_from, recipient_list)
