@@ -7,4 +7,6 @@ WORKDIR /code
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 RUN pip install Pillow
+RUN pip install captcha
+RUN pip install django-simple-captcha
 COPY . /code/
