@@ -84,7 +84,7 @@ class Product(models.Model):
 
 
 class Order(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, null=True, blank=True)
     date_ordered = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False)
     transaction_id = models.CharField(max_length=100, null=True)
@@ -151,7 +151,7 @@ class Favorites(models.Model):
 
 
 class FavoritesItem(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=True)
     favorites = models.ForeignKey(Favorites, on_delete=models.SET_NULL, blank=True, null=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
