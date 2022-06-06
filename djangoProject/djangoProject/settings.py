@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 
+
 LOGIN_URL = '/login/'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -134,3 +135,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images/clothes')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# SMTP Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'nexttry42@gmail.com'
+EMAIL_HOST_PASSWORD = 'zrmgjmrfjllbnudg'

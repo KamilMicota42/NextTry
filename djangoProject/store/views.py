@@ -31,6 +31,19 @@ def cart_view(request):
 
 
 @login_required
+def favorites_view(request):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        favorites, created = Favorites.objects.get_or_create(customer=customer)
+        items = favorites.favoritesitem_set.all()
+    else:
+        items = []
+        favorites = []
+    context = {'items': items, 'favorites': favorites}
+    return render(request, 'store/favorites.html', context)
+
+
+@login_required
 def checkout_view(request):
     data = cartData(request)
 
@@ -40,17 +53,6 @@ def checkout_view(request):
 
     context = {'items': items, 'order': order, 'cartItems': cartItems}
     return render(request, 'store/checkout.html', context)
-# def checkout_view(request):
-#     if request.user.is_authenticated:
-#         customer = request.user.customer
-#         order, created = Order.objects.get_or_create(customer=customer, complete=False)
-#         items = order.orderitem_set.all()
-#     else:
-#         items = []
-#         order = {'get_cart_total': 0, 'get_cart_items': 0}
-#
-#     context = {'items': items, 'order': order}
-#     return render(request, 'store/checkout.html', context)
 
 
 def details_view(request, pk=None, *args, **kwargs):
@@ -63,20 +65,6 @@ def details_view(request, pk=None, *args, **kwargs):
     return render(request, 'store/details.html', context=context)
 
 
-@login_required
-def favorites_view(request):
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-    else:
-        items = []
-        order = {'get_cart_total': 0, 'get_cart_items': 0}
-
-    context = {'items': items, 'order': order}
-    return render(request, 'store/favorites.html', context)
-
-
 def search_view(request):
     q = request.GET['q']
     products = Product.objects.filter(name__contains=q).order_by('-id')
@@ -87,16 +75,6 @@ def search_view(request):
 def category_view(request, cats):
     products = Product.objects.filter(genre__exact=cats).order_by('-id')
     return render(request, 'store/category.html', {'cats': cats, 'products': products})
-
-
-# def update_item(request):
-#     data = json.load(request.body)
-#     productId = data['productId']
-#     action = data['action']
-#     print('Action: ', action)
-#     print('Product: ', productId)
-#
-#     return JsonResponse('Item was added', safe=False)
 
 
 @login_required
@@ -122,6 +100,40 @@ def update_item(request):
     orderItem.save()
 
     return JsonResponse('Item was added to cart', safe=False)
+
+
+@login_required
+def update_item_favorites(request):
+    data = json.loads(request.body)
+    productId = data['productId']
+    action = data['action']
+    print('Action:', action)
+    print('Product:', productId)
+
+    customer = request.user.customer
+    product = Product.objects.get(id=productId)
+    favorites, created = Favorites.objects.get_or_create(customer=customer)
+
+    favoritesItem, created = FavoritesItem.objects.get_or_create(favorites=favorites, product=product)
+
+    favoritesItem.save()
+
+    if action == 'remove':
+        favoritesItem.delete()
+        return JsonResponse('Item was deleted from favorites', safe=False)
+
+    favoritesItem.save()
+
+    return JsonResponse('Item was added to favorites', safe=False)
+
+
+
+
+
+
+
+
+
 
 
 @login_required
