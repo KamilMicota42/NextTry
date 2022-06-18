@@ -80,7 +80,6 @@ Project uses SQLite database which is conventional Django db for small projects.
 <br />
 
 ## Design and Code by Micota Kamil
-### Docked with docker by Kimsza Jakub
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
