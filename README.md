@@ -20,7 +20,7 @@ Project created in order to learn new technologies: Django, Bootstrap, SQLite, J
 
 ## Functionality Of The Project:
 
-### looking through items
+### Looking Through Items
 
 <br />
 
@@ -31,7 +31,7 @@ Details will diverge from one another because of item category e.g. if the item 
 <br />
 
 
-### registration
+### Registration
 
 <br />
 
@@ -45,7 +45,7 @@ Registration process takes few seconds this is due to sending welcoming email me
 
 <br />
 
-### signing in / logging out
+### Signing In / Logging Out
 Of course after registration user can comeback anytime he/she wants, from any device.
 ![nexttryloginout](https://user-images.githubusercontent.com/85360923/174444178-38ace7fe-a8e5-4064-8b63-bbbfcf2a3529.gif)
 
@@ -58,8 +58,16 @@ Every user can search through items by name or by category.
 
 <br />
 
-* adding and deleting items from user favorites and cart
-* finally buying item after filling in form
+### Cart And Favourties
+Authenticated users are able to add or delete from list of items in cart or in favorites.
+
+<br />
+
+![nexttryadding](https://user-images.githubusercontent.com/85360923/174444760-e9daf1aa-813b-47b1-872a-98b6a69de559.gif)
+
+<br />
+
+### Buying Item
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
