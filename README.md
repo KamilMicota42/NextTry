@@ -29,7 +29,7 @@ Project created in order to learn new technologies: Django, Bootstrap, SQLite, J
 * adding and deleting items from user favorites and cart
 * finally buying item after filling in form
 
-## Gif showing the functionality
+## Presentation
 
 
 
