@@ -39,11 +39,14 @@ Every user can register into website in order to access functionality like addin
 Registration process takes few seconds this is due to sending welcoming email message. Email is sent by 'company' email account with information about user, like in this example his name wich is collected from db.
 ![registerMail](https://user-images.githubusercontent.com/85360923/174443395-42f317a5-f677-49e7-8525-7a7e4c08ccb6.png)
 
+<br />
 
-* sending welcoming email to user
-* signing in
-* viewing items details page
-* search for item with its name or category
+### signing in / logging out
+Of course after registration user can comeback anytime he/she wants, from any device.
+![nexttryloginout](https://user-images.githubusercontent.com/85360923/174444178-38ace7fe-a8e5-4064-8b63-bbbfcf2a3529.gif)
+
+### search for item by name or by category
+
 * adding and deleting items from user favorites and cart
 * finally buying item after filling in form
 
