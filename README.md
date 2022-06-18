@@ -1,2 +1,38 @@
-# NextTry!
-[nexttryadding](https://user-images.githubusercontent.com/85360923/174417752-8ca5815e-7d30-4923-bae5-fcfa0e5632b3.gif)
+<div id="top"></div>
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">Next Try</h3>
+
+  <p align="center">
+    An awesome second hand.
+    <br />
+  </p>
+</div>
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+Project created in order to learn new technologies: Django, Bootstrap. The idea of project is close to my heart: eco-friendly, cheap and fun - second hand clothing.
+
+## Functionality Of The Project:
+
+* registration (with the captcha test)
+* sending welcoming email to user
+* signing in
+* looking through items
+* viewing items details page
+* search for item with its name or category
+* adding and deleting items from user favorites and cart
+* finally buying item after filling in form
+
+### 
+
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
