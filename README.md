@@ -32,9 +32,6 @@ Project created in order to learn new technologies: Django, Bootstrap, SQLite, J
 ### Gif showing the functionality
 
 
-![nexttrybuying](https://user-images.githubusercontent.com/85360923/174418700-9362316f-3d1d-47c4-bc90-0b0581b9e72a.gif)
 
-
-
-<p align="right">(<a href="#top">back to top</a>)</p>![nexttryregister](https://user-images.githubusercontent.com/85360923/174418712-06761496-aafb-4c44-aad3-9e925bdf6466.gif)
+<p align="right">(<a href="#top">back to top</a>)</p>
 
