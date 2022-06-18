@@ -18,7 +18,7 @@
 
 Project created in order to learn new technologies: Django, Bootstrap, SQLite, JavaScript. The idea of project is close to my heart: eco-friendly, cheap and fun - second hand clothing.
 
-## Functionality Of The Project:
+### Functionality Of The Project:
 
 * looking through items
 * registration (with the captcha test)
