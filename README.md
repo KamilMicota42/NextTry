@@ -71,8 +71,10 @@ Project is created using bootstrap which enables easy to make mobile device page
 
 ### Database
 Project uses SQLite database which is conventional Django db for small projects. Every form filled by user is saved here.
-![Zrzut ekranu 2022-06-18 172134](https://user-images.githubusercontent.com/85360923/174445135-a8d27f1f-5650-4db7-9888-763c0726cd6c.png)
-
+<div align="center">
+  ![Zrzut ekranu 2022-06-18 172134](https://user-images.githubusercontent.com/85360923/174445135-a8d27f1f-5650-4db7-9888-763c0726cd6c.png)
+</div>
+  
 <br />
 
 <p align="right">(<a href="#top">back to top</a>)</p>
