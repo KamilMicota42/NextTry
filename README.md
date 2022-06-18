@@ -31,7 +31,7 @@ Items are added by admin user in conventional Django admin page. User can scroll
 
 <br />
 
-Every user can register into website in order to access functionality like adding items to cart or to list of favorite items. Registration form is secured with simple captcha test.
+Every user can register into website in order to access functionality like adding items to cart or to favorite items. Registration form is secured with simple captcha test.
 ![nexttryregister](https://user-images.githubusercontent.com/85360923/174443382-3fc11037-d7d9-4b34-90a1-67764c8b3f94.gif)
 
 <br />
