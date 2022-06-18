@@ -45,7 +45,7 @@ Of course after registration user can comeback anytime he/she wants, from any de
 
 <br />
 
-### search for item by name or by category
+### Search For Item
 Every user can search through items by name or by category.
 ![nexttrysearch](https://user-images.githubusercontent.com/85360923/174444531-f7a16863-84f3-4126-8095-5cddd946fbb6.gif)
 
