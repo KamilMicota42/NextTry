@@ -14,20 +14,20 @@
 </div>
 
 <!-- ABOUT THE PROJECT -->
-### About The Project
+## About The Project
 
 Project created in order to learn new technologies: Django, Bootstrap, SQLite, JavaScript. The idea of project is close to my heart: eco-friendly, cheap and fun - second hand clothing.
 
-### Functionality Of The Project:
+## Functionality Of The Project:
 
-* looking through items
+### looking through items
 
 <br />
 
 Items are added by admin user in conventional Django admin page. User can scroll through items and view details about them, which will diverge from one another because of item category e.g. if the item belongs to category shoes it will show shoe size instead of cloth size.
 ![nexttry3](https://user-images.githubusercontent.com/85360923/174443231-f282eef2-5f5f-4c79-bb8c-0fc1ae5c0c31.gif)
 
-* registration
+### registration
 
 <br />
 
