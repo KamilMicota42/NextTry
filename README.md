@@ -14,7 +14,7 @@
 </div>
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+### About The Project
 
 Project created in order to learn new technologies: Django, Bootstrap, SQLite, JavaScript. The idea of project is close to my heart: eco-friendly, cheap and fun - second hand clothing.
 
