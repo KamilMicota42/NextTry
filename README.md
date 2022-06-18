@@ -7,10 +7,8 @@
     <img src="djangoProject/static/images/logo.png" alt="Logo">
   </a>
 
-  <h3 align="center">Next Try</h3>
-
   <p align="center">
-    An awesome second hand.
+    An awesome second hand website.
     <br />
   </p>
 </div>
