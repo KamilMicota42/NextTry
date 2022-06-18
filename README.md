@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/KamilMicota42/NextTry">
     <img src="djangoProject/static/images/logo.png" alt="Logo">
   </a>
 
