@@ -25,7 +25,9 @@ Project created in order to learn new technologies: Django, Bootstrap, SQLite, J
 <br />
 * registration (with the captcha test)
 ![nexttryregister](https://user-images.githubusercontent.com/85360923/174443382-3fc11037-d7d9-4b34-90a1-67764c8b3f94.gif)
+
 ![registerMail](https://user-images.githubusercontent.com/85360923/174443395-42f317a5-f677-49e7-8525-7a7e4c08ccb6.png)
+
 <br />
 
 * sending welcoming email to user
