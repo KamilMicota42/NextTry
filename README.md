@@ -20,16 +20,19 @@ Project created in order to learn new technologies: Django, Bootstrap. The idea 
 
 ## Functionality Of The Project:
 
+* looking through items
 * registration (with the captcha test)
 * sending welcoming email to user
 * signing in
-* looking through items
 * viewing items details page
 * search for item with its name or category
 * adding and deleting items from user favorites and cart
 * finally buying item after filling in form
 
 ### 
+
+
+![nexttryadding](https://user-images.githubusercontent.com/85360923/174418493-85730ea5-d79c-4e1f-9410-f39c4c12c9da.gif)
 
 
 
