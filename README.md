@@ -21,9 +21,6 @@ Project created in order to learn new technologies: Django, Bootstrap, SQLite, J
 ## Functionality Of The Project:
 
 ### Looking Through Items
-
-<br />
-
 Items are added by admin user in conventional Django admin page. User can scroll through items and view details about them.
 Details will diverge from one another because of item category e.g. if the item belongs to category 'shoes' it will show shoe size instead of clothing size.
 ![nexttry3](https://user-images.githubusercontent.com/85360923/174443231-f282eef2-5f5f-4c79-bb8c-0fc1ae5c0c31.gif)
@@ -32,9 +29,6 @@ Details will diverge from one another because of item category e.g. if the item 
 
 
 ### Registration
-
-<br />
-
 Every user can register into website in order to access functionality like adding items to cart or to favorite items. Registration form is secured with simple captcha test.
 ![nexttryregister](https://user-images.githubusercontent.com/85360923/174443382-3fc11037-d7d9-4b34-90a1-67764c8b3f94.gif)
 
@@ -49,20 +43,16 @@ Registration process takes few seconds this is due to sending welcoming email me
 Of course after registration user can comeback anytime he/she wants, from any device.
 ![nexttryloginout](https://user-images.githubusercontent.com/85360923/174444178-38ace7fe-a8e5-4064-8b63-bbbfcf2a3529.gif)
 
-### search for item by name or by category
-Every user can search through items by name or by category.
-
 <br />
 
+### search for item by name or by category
+Every user can search through items by name or by category.
 ![nexttrysearch](https://user-images.githubusercontent.com/85360923/174444531-f7a16863-84f3-4126-8095-5cddd946fbb6.gif)
 
 <br />
 
 ### Cart And Favourties
 Authenticated users are able to add or delete from list of items in cart or in favorites.
-
-<br />
-
 ![nexttryadding](https://user-images.githubusercontent.com/85360923/174444760-e9daf1aa-813b-47b1-872a-98b6a69de559.gif)
 
 <br />
