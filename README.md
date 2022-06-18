@@ -16,7 +16,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Project created in order to learn new technologies: Django, Bootstrap. The idea of project is close to my heart: eco-friendly, cheap and fun - second hand clothing.
+Project created in order to learn new technologies: Django, Bootstrap, SQLite, JavaScript. The idea of project is close to my heart: eco-friendly, cheap and fun - second hand clothing.
 
 ## Functionality Of The Project:
 
@@ -29,10 +29,9 @@ Project created in order to learn new technologies: Django, Bootstrap. The idea 
 * adding and deleting items from user favorites and cart
 * finally buying item after filling in form
 
-### 
+### Gif showing the functionality
 
 
-![nexttryadding](https://user-images.githubusercontent.com/85360923/174418493-85730ea5-d79c-4e1f-9410-f39c4c12c9da.gif)
 
 
 
