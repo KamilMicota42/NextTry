@@ -65,8 +65,10 @@ Finally authenticated users can go to checkout page in which they fill the form 
 
 ### Mobile View
 Project is created using bootstrap which enables easy to make mobile device pages.
-![nexttrymobile1](https://user-images.githubusercontent.com/85360923/174684071-7e2525be-cbfb-472b-9e73-0b12af512cdb.gif)
 
+<div align="center">
+  ![nexttrymobile1](https://user-images.githubusercontent.com/85360923/174684071-7e2525be-cbfb-472b-9e73-0b12af512cdb.gif)
+</div>
 
 <br />
 
