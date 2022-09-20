@@ -34,7 +34,7 @@ Every user can register into website in order to access functionality like addin
 
 <br />
 
-Registration process takes few seconds this is due to sending welcoming email message. Email is sent by 'company' email account with information about user, like in this example his name wich is collected from typical django form.
+Registration process takes few seconds this is due to sending welcoming email message. Email is sent by 'company' email account with information about user, like in this example his name which is collected from typical django form.
 ![registerMail](https://user-images.githubusercontent.com/85360923/174443395-42f317a5-f677-49e7-8525-7a7e4c08ccb6.png)
 
 <br />
